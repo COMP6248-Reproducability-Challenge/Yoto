@@ -1,6 +1,19 @@
-# You Only Train Once_Loss-Condition Training of Deep Networks
- Reimplementation of the yoto algorithm described in the paper: https://openreview.net/pdf?id=HyxY6JHKwr
+# Weights
 
-Paper: https://openreview.net/pdf?id=HyxY6JHKwr
+This is the folder where the weights are saved, the weights are saved in the format
 
-The authors updated the paper they submitted, we re-implemented the algorithms and methods used in the updated paper. The authors did not have any published or accessable code so we had to implement code using information provided in the paper. The yoto implementation was successfully reproduced up to a degree because parts of the paper did not clarify was they did, but the expected trends on the reproducable parts hold true.
+For the yoto CIFAR10
+"encCIFAR10Yoto_x{}.weights", where the variable is the encoder width
+"decCIFAR10Yoto_x{}.weights", where the variable is the decoder width
+
+for the bVAE fixed weights CIFAR10
+"encCIFAR10BVAE{}_x{}.weights", where the variables are the beta, encoder width
+"decCIFAR10BVAE{}_x{}.weights", where the variables are the beta, decoder width
+
+For the yoto SHAPES
+"encSHAPESYoto_x{}.weights", where the variable is the encoder width
+"decSHAPESYoto_x{}.weights", where the variable is the decoder width
+
+For the bVAE fixed weights SHAPES
+"encSHAPESBVAE{}_x{}.weights", where the variables are beta, encoder width
+"decSHAPESBVAE{}_x{}.weights", where the variables are beta, decoder width
