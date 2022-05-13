@@ -2,18 +2,21 @@
 
 This is the folder where the weights are saved, the weights are saved in the format
 
+where {b} = beta
+and {w} = model width
+
 For the yoto CIFAR10
-"encCIFAR10Yoto_x{}.weights", where the variable is the encoder width
-"decCIFAR10Yoto_x{}.weights", where the variable is the decoder width
+"encCIFAR10Yoto_x{w}.weights"
+"decCIFAR10Yoto_x{w}.weights"
 
 for the bVAE fixed weights CIFAR10
-"encCIFAR10BVAE{}_x{}.weights", where the variables are the beta, encoder width
-"decCIFAR10BVAE{}_x{}.weights", where the variables are the beta, decoder width
+"encCIFAR10BVAE{b}_x{w}.weights"
+"decCIFAR10BVAE{b}_x{w}.weights"
 
 For the yoto SHAPES
-"encSHAPESYoto_x{}.weights", where the variable is the encoder width
-"decSHAPESYoto_x{}.weights", where the variable is the decoder width
+"encSHAPESYoto_x{w}.weights"
+"decSHAPESYoto_x{w}.weights"
 
 For the bVAE fixed weights SHAPES
-"encSHAPESBVAE{}_x{}.weights", where the variables are beta, encoder width
-"decSHAPESBVAE{}_x{}.weights", where the variables are beta, decoder width
+"encSHAPESBVAE{b}_x{w}.weights"
+"decSHAPESBVAE{b}_x{w}.weights"
