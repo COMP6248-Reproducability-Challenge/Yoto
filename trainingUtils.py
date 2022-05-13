@@ -1,7 +1,7 @@
 from CIFAR10Models import CIFAR10Encoder, CIFAR10Decoder, CIFAR10YotoEncoder, CIFAR10YotoDecoder
 from SHAPESModels import SHAPESEncoder, SHAPESDecoder, SHAPESYotoEncoder, SHAPESYotoDecoder
 from CIFARtraining import trainBVAEFixedCIFAR, trainBVAEYotoCIFAR
-from SHAPEStraining import trainSHAPESFixedCIFAR, trainSHAPESYotoCIFAR
+from SHAPESTraining import trainBVAEFixedSHAPES, trainBVAEYotoSHAPES
 
 training_dir = './trainingResults'
 weights_dir = './weights'
@@ -66,7 +66,7 @@ def train_Yoto_SHAPES(width, train):
     # directory to save decoder weights
     decDir = "{}/decSHAPESYoto_x{}.weights".format(weights_dir, width)
 
-    kL_loss, recon_loss, full_loss = trainBVAEYotoCIFAR(train, enc, dec, BATCHSIZE, EPOCHS, trainingDir, encDir, decDir)
+    kL_loss, recon_loss, full_loss = trainBVAEYotoSHAPES(train, enc, dec, BATCHSIZE, EPOCHS, trainingDir, encDir, decDir)
     return kL_loss, recon_loss, full_loss
 
 def train_BVAE_SHAPES(width, train, beta=1):
@@ -86,5 +86,5 @@ def train_BVAE_SHAPES(width, train, beta=1):
     # directory to save decoder weights
     decDir = "{}/decSHAPESBVAE{}_x{}.weights".format(weights_dir, beta, width)
 
-    kL_loss, recon_loss, full_loss = trainBVAEFixedCIFAR(train, enc, dec, beta, BATCHSIZE, EPOCHS, trainingDir, encDir, decDir)
+    kL_loss, recon_loss, full_loss = trainBVAEFixedSHAPES(train, enc, dec, beta, BATCHSIZE, EPOCHS, trainingDir, encDir, decDir)
     return kL_loss, recon_loss, full_loss
