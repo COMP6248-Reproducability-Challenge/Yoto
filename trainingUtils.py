@@ -3,6 +3,7 @@ from SHAPESModels import SHAPESEncoder, SHAPESDecoder, SHAPESYotoEncoder, SHAPES
 from CIFARtraining import trainBVAEFixedCIFAR, trainBVAEYotoCIFAR
 from SHAPESTraining import trainBVAEFixedSHAPES, trainBVAEYotoSHAPES
 
+EPOCHS = 1
 training_dir = './trainingResults'
 weights_dir = './weights'
 
@@ -24,7 +25,7 @@ def train_Yoto_CIFAR(width, train):
     # directory to save decoder weights
     decDir = "{}/decCIFAR10Yoto_x{}.weights".format(weights_dir, width)
 
-    kL_loss, recon_loss, full_loss = trainBVAEYotoCIFAR(train, enc, dec, BATCHSIZE, EPOCHS, trainingDir, encDir, decDir)
+    kL_loss, recon_loss, full_loss = trainBVAEYotoCIFAR(train, enc, dec, EPOCHS, trainingDir, encDir, decDir)
     return kL_loss, recon_loss, full_loss
 
 def train_BVAE_CIFAR(width, train, beta=1):
@@ -44,7 +45,7 @@ def train_BVAE_CIFAR(width, train, beta=1):
     # directory to save decoder weights
     decDir = "{}/decCIFAR10BVAE{}_x{}.weights".format(weights_dir, beta, width)
 
-    kL_loss, recon_loss, full_loss = trainBVAEFixedCIFAR(train, enc, dec, beta, BATCHSIZE, EPOCHS, trainingDir, encDir, decDir)
+    kL_loss, recon_loss, full_loss = trainBVAEFixedCIFAR(train, enc, dec, beta, EPOCHS, trainingDir, encDir, decDir)
     return kL_loss, recon_loss, full_loss
 
 
@@ -66,7 +67,7 @@ def train_Yoto_SHAPES(width, train):
     # directory to save decoder weights
     decDir = "{}/decSHAPESYoto_x{}.weights".format(weights_dir, width)
 
-    kL_loss, recon_loss, full_loss = trainBVAEYotoSHAPES(train, enc, dec, BATCHSIZE, EPOCHS, trainingDir, encDir, decDir)
+    kL_loss, recon_loss, full_loss = trainBVAEYotoSHAPES(train, enc, dec, EPOCHS, trainingDir, encDir, decDir)
     return kL_loss, recon_loss, full_loss
 
 def train_BVAE_SHAPES(width, train, beta=1):
@@ -86,5 +87,5 @@ def train_BVAE_SHAPES(width, train, beta=1):
     # directory to save decoder weights
     decDir = "{}/decSHAPESBVAE{}_x{}.weights".format(weights_dir, beta, width)
 
-    kL_loss, recon_loss, full_loss = trainBVAEFixedSHAPES(train, enc, dec, beta, BATCHSIZE, EPOCHS, trainingDir, encDir, decDir)
+    kL_loss, recon_loss, full_loss = trainBVAEFixedSHAPES(train, enc, dec, beta, EPOCHS, trainingDir, encDir, decDir)
     return kL_loss, recon_loss, full_loss

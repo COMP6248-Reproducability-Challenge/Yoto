@@ -15,10 +15,9 @@ def sample(mu, logvar):
     return eps.mul(std).add_(mu)
 
 
-def trainBVAEFixedCIFAR(trainloader, encoder, decoder, beta=1, batchsize=128, epochs=100, training_dir='./trainingResults/CIFAR10FixedWeights.csv', enc_dir='./weights/encCIFAR10FixedWeights.weights', dec_dir='./weights/decCIFAR10FixedWeights.weights'):
+def trainBVAEFixedCIFAR(trainloader, encoder, decoder, beta=1, epochs=100, training_dir='./trainingResults/CIFAR10FixedWeights.csv', enc_dir='./weights/encCIFAR10FixedWeights.weights', dec_dir='./weights/decCIFAR10FixedWeights.weights'):
     # parameters
     beta = beta
-    batch_size = batchsize
     nEpoch = epochs
 
     KL_loss = []
@@ -80,9 +79,8 @@ def trainBVAEFixedCIFAR(trainloader, encoder, decoder, beta=1, batchsize=128, ep
     return KL_numpy, recon_np, full_np
 
 
-def trainBVAEYotoCIFAR(trainloader, encoder, decoder, batchsize=128, epochs=100, training_dir='./trainingResults/CIFAR10Yoto.csv', enc_dir='./weights/encCIFAR10Yoto.weights', dec_dir='./weights/decCIFAR10Yoto.weights'):
+def trainBVAEYotoCIFAR(trainloader, encoder, decoder, epochs=100, training_dir='./trainingResults/CIFAR10Yoto.csv', enc_dir='./weights/encCIFAR10Yoto.weights', dec_dir='./weights/decCIFAR10Yoto.weights'):
     # parameters
-    batch_size = batchsize
     nEpoch = epochs
 
     # construct the encoder, decoder and optimiser

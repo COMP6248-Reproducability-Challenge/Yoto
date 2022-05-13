@@ -15,10 +15,9 @@ def sample(mu, logvar):
     return eps.mul(std).add_(mu)
 
 
-def trainBVAEFixedSHAPES(trainloader, encoder, decoder, beta=1, batchsize=128, epochs=100, training_dir='./trainingResults/SHAPESFixedWeights.csv', enc_dir='./weights/encSHAPESFixedWeights.weights', dec_dir='./weights/decSHAPESFixedWeights.weights'):
+def trainBVAEFixedSHAPES(trainloader, encoder, decoder, beta=1, epochs=100, training_dir='./trainingResults/SHAPESFixedWeights.csv', enc_dir='./weights/encSHAPESFixedWeights.weights', dec_dir='./weights/decSHAPESFixedWeights.weights'):
     # parameters
     beta = beta
-    batch_size = batchsize
     nEpoch = epochs
 
     KL_loss = []
@@ -80,9 +79,8 @@ def trainBVAEFixedSHAPES(trainloader, encoder, decoder, beta=1, batchsize=128, e
     return KL_numpy, recon_np, full_np
 
 
-def trainBVAEYotoSHAPES(trainloader, encoder, decoder, batchsize=128, epochs=100, training_dir='./trainingResults/SHAPESYoto.csv', enc_dir='./weights/encSHAPESYoto.weights', dec_dir='./weights/decSHAPESYoto.weights'):
+def trainBVAEYotoSHAPES(trainloader, encoder, decoder, epochs=100, training_dir='./trainingResults/SHAPESYoto.csv', enc_dir='./weights/encSHAPESYoto.weights', dec_dir='./weights/decSHAPESYoto.weights'):
     # parameters
-    batch_size = batchsize
     nEpoch = epochs
 
     # construct the encoder, decoder and optimiser
